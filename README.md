@@ -1,1 +1,1 @@
-# TimeTable-StandAlone : Time table APP for my father's college
+# TimeTable-StandAlone : Time table app for my father's college
