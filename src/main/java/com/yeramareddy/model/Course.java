@@ -4,8 +4,8 @@ public class Course {
 
     private String subCode;
     private String subName;
-    private String noOfTheoryLecturesPerWeek;
-    private String noOfPracticalLecturesPerWeek;
+    private int noOfTheoryLecturesPerWeek;
+    private int noOfPracticalLecturesPerWeek;
 
     public String getSubCode() {
         return subCode;
@@ -23,21 +23,23 @@ public class Course {
         this.subName = subName;
     }
 
-    public String getNoOfTheoryLecturesPerWeek() {
+    public int getNoOfTheoryLecturesPerWeek() {
         return noOfTheoryLecturesPerWeek;
     }
 
-    public void setNoOfTheoryLecturesPerWeek(String noOfTheoryLecturesPerWeek) {
+    public void setNoOfTheoryLecturesPerWeek(int noOfTheoryLecturesPerWeek) {
         this.noOfTheoryLecturesPerWeek = noOfTheoryLecturesPerWeek;
     }
 
-    public String getNoOfPracticalLecturesPerWeek() {
+    public int getNoOfPracticalLecturesPerWeek() {
         return noOfPracticalLecturesPerWeek;
     }
 
-    public void setNoOfPracticalLecturesPerWeek(String noOfPracticalLecturesPerWeek) {
+    public void setNoOfPracticalLecturesPerWeek(int noOfPracticalLecturesPerWeek) {
         this.noOfPracticalLecturesPerWeek = noOfPracticalLecturesPerWeek;
     }
+
+
 
     @Override
     public String toString() {

@@ -18,24 +18,26 @@ public class CSVReader {
     public static List<Course> getCSVFile() {
         List<Course> courses = new ArrayList<>();
         String line;
-        try (BufferedReader csvFile = new BufferedReader(new FileReader("src/main/resources/course_data.csv"))) {
+        try (BufferedReader csvFile = new BufferedReader(new FileReader("src/main/resources/first_year_courses.csv"))) {
             int lineNumber = 0;
             while ((line = csvFile.readLine()) != null) {
                 lineNumber++;
                 if (lineNumber > 1) {
                     String[] courseArr = line.split(",");
-                    Course course = new Course();
-                    if (courseArr.length > 0)
-                        course.setSubCode(courseArr[0]);
-                    if (courseArr.length > 1)
-                        course.setSubName(courseArr[1]);
-                    if (courseArr.length > 2)
-                        course.setNoOfTheoryLecturesPerWeek(courseArr[2]);
-                    if (courseArr.length > 3)
-                        course.setNoOfPracticalLecturesPerWeek(courseArr[3]);
-                    courses.add(course);
-//                    System.out.println("Course [code= " + course[0] + " , name=" + course[1] + "]");
+                    if (courseArr.length > 2) {
+                        Course course = new Course();
+                        course.setSubCode(courseArr[0].trim());
+                        course.setSubName(courseArr[1].trim());
+                        if (courseArr[2].trim().length() > 0)
+                            course.setNoOfTheoryLecturesPerWeek(Integer.parseInt(courseArr[2].trim()));
+                        if (courseArr.length > 3)
+                            if (courseArr[3].trim().length() > 0)
+                                course.setNoOfPracticalLecturesPerWeek(Integer.parseInt(courseArr[3].trim()));
+
+                        courses.add(course);
+                    }
                 }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
